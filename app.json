@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/course/list/index",
+    "pages/course/detail/index",
+    "pages/product/list/index",
+    "pages/product/detail/index",
+    "pages/mine/address/index",
+    "pages/mine/cart/index",
+    "pages/mine/cartlist/index",
+    "pages/mine/feedback/index",
+    "pages/mine/menu/index",
+    "pages/mine/order/index",
+    "pages/mine/orderlist/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "烘培小程序",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#fbfbfb"
+  },
+  "tabBar": {
+    "color": "#686E71",
+    "selectedColor": "#FD77A3",
+    "backgroundColor": "#FFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon_home.png",
+        "selectedIconPath": "images/icon_home_active.png",
+        "text": "首页"
+      }, 
+      {
+        "pagePath": "pages/product/list/index",
+        "iconPath": "images/icon_product.png",
+        "selectedIconPath": "images/icon_product_active.png",
+        "text": "产品"
+      },
+      {
+        "pagePath": "pages/course/list/index",
+        "iconPath": "images/icon_course.png",
+        "selectedIconPath": "images/icon_course_active.png",
+        "text": "课程"
+      },
+      {
+        "pagePath": "pages/mine/menu/index",
+        "iconPath": "images/icon_mine.png",
+        "selectedIconPath": "images/icon_mine_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "debug": true
+}

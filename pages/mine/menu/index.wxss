@@ -1,0 +1,69 @@
+.avatar-bg{
+    width: 100%;
+    height: 400rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(-114deg, #FDBDD2 0%, #F1F1FF 51%, #9EEAFF 100%);
+}
+.user-avatar{
+    width: 163rpx;
+    height: 163rpx;
+    border-radius: 50%;
+}
+.user-name{
+    margin-top: 5rpx;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(188,137,137,0.70);
+}
+
+.menu-list{
+    width: 100%;
+    background-color: #fff;
+}
+
+.menu-item{
+    display: flex;
+    height: 108rpx;
+    padding-left: 35rpx;
+    padding-right: 40rpx;
+}
+
+.menu-item .item-desc{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-item:not(:last-child) .item-desc{
+    border-bottom: 1px solid  #E7E7E7;
+}
+.item-desc .icon-right{
+    width: 18rpx;
+    height: 32rpx;
+}
+
+.menu-item .item-icon{
+    margin-top: 2rpx;
+    width: 75rpx;
+    display: flex;
+    align-items: center;
+}
+.item-icon .icon-order{
+    width: 36rpx;
+    height: 49rpx;
+}
+.item-icon .icon-feed{
+    width: 48rpx;
+    height: 40rpx;
+}
+.item-icon .icon-cart{
+    width: 47rpx;
+    height: 35rpx;
+}
+.item-icon .icon-addr{
+    width: 37rpx;
+    height: 59rpx;
+}

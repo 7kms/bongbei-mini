@@ -1,0 +1,18 @@
+<view class="container">
+   <view class="avatar-bg">
+       <image class="user-avatar" mode="aspectFit" src="{{avatar}}"></image>
+       <text class="user-name">小yy</text>
+   </view>
+   <view class="menu-list">
+        <view class="menu-item" wx:for="{{menulist}}" wx:key="{{index}}" data-index="{{index}}" bindtap="menuClick">
+            <view class="item-icon">
+                <image class="{{item.class}}" src="{{item.icon}}" mode="aspectFit" />
+            </view>
+            <view class="item-desc">
+                <text>{{item.title}}</text>
+                <image class="icon-right" src="/images/icon-more.png" mode="aspectFit"/>
+            </view>
+        </view>
+   </view>
+ </view>
+   
