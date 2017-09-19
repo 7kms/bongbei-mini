@@ -1,26 +1,44 @@
+var $api = require('./utils/api').$api
+
 //app.js
 App({
   onLaunch: function() {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    var _this = this
+    wx.login({
+      success: function(res) {
+        let code = res.code;
+        _this.getUserInfo(function(res){
+          // res.code = code
+          let {encryptedData,iv} = res
+          $api({
+            method: 'POST',
+            url:'/user/onlogin',
+            data:{
+              code,encryptedData,iv
+            },
+            success:function(res){
+              console.log(res)
+              _this.getUserInfo()
+            },
+            fail: function(err){
+              console.log(err)
+            }
+          })
+        })
+      }
+    });
   },
 
   getUserInfo: function(cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        withCredentials: false,
-        success: function(res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
-        }
-      })
-    }
+    //调用登录接口
+    wx.getUserInfo({
+      withCredentials: true,
+      success: function(res) {
+        console.log(res)
+        // that.globalData.userInfo = res.userInfo
+        typeof cb == "function" && cb(res)
+      }
+    })
   },
 
   globalData: {
