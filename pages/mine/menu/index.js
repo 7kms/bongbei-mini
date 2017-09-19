@@ -1,6 +1,9 @@
+import {getUserInfo} from '../../../utils/index'
+
 Page({
     data:{
         avatar: '/images/avatar.png',
+        userInfo: {},
         menulist:[
             {
                 title: '收货地址',
@@ -28,11 +31,25 @@ Page({
             }
         ]
     },
+    onLoad: function(){
+        var _this = this
+        getUserInfo(function(userInfo){
+            _this.setData({
+                userInfo
+            })
+        },function(){
+            
+        })
+    },
     menuClick: function(e){
         var index = e.currentTarget.dataset.index;
         var path = this.data.menulist[index].path;
-        wx.navigateTo({
-            url: path
+        getUserInfo(function(){
+            wx.navigateTo({
+                url: path
+            })
+        },function(){
+
         })
     }
 })

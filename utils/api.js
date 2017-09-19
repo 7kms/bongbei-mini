@@ -9,11 +9,17 @@ function $api({method='GET',url,data,success,fail}) {
         header: {
             'content-type': 'application/json' // 默认值
         },
-        success,
+        success: function(res){
+            if(res.statusCode >= 200 && res.statusCode < 300){
+                success(res)
+            }else{
+                fail && fail()
+            }
+        },
         fail
     })
 }
 
-module.exports = {
-    $api
+export {
+    $api  
 }
