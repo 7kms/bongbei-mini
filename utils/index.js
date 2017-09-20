@@ -63,8 +63,26 @@ let login = function(){
         }
     });
 }
+
+let getToken = function(){
+    var app = getApp();
+    let {token} = app.globalData;
+    if(!token){
+        token = wx.getStorageSync('token')
+    }
+    return token;
+}
+
+let setToken = function(token){
+    var app = getApp();
+    app.globalData.token = token;
+    wx.setStorageSync('token',token);
+}
+
 export {
     fetchUserInfo,
     getUserInfo,
-    login
+    login,
+    getToken,
+    setToken
 }

@@ -9,5 +9,8 @@ App({
     },function(){
       login()
     })
+  },
+  globalData:{
+
   }
 })
