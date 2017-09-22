@@ -34,6 +34,7 @@ Page({
     onLoad: function(){
         var _this = this
         getUserInfo(function(userInfo){
+            console.log(userInfo)
             _this.setData({
                 userInfo
             })

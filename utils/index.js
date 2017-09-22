@@ -1,13 +1,12 @@
-
 import { $api } from './api';
 
 let fetchUserInfo = function(success,err){
     $api({
         method:'GET',
         url: '/user',
-        success: function(res){
-            wx.setStorageSync('userInfo',res.data)
-            success(res.data)
+        success: function(data){
+            wx.setStorageSync('userInfo',data)
+            success(data)
         },
         fail:function(){
             wx.removeStorageSync('userInfo')
@@ -15,7 +14,6 @@ let fetchUserInfo = function(success,err){
         }
     })
 }
-
 
 let getUserInfo = function(success,err){
     try {
@@ -64,25 +62,8 @@ let login = function(){
     });
 }
 
-let getToken = function(){
-    var app = getApp();
-    let {token} = app.globalData;
-    if(!token){
-        token = wx.getStorageSync('token')
-    }
-    return token;
-}
-
-let setToken = function(token){
-    var app = getApp();
-    app.globalData.token = token;
-    wx.setStorageSync('token',token);
-}
-
 export {
     fetchUserInfo,
     getUserInfo,
-    login,
-    getToken,
-    setToken
+    login
 }

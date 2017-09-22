@@ -1,0 +1,65 @@
+
+.container{
+    font-size: 26rpx;
+    color: #686E71;
+    background-color: #FBFBFB;
+}
+.item{
+    padding: 25rpx 25rpx 0;
+    margin-bottom: 10rpx;
+    color: #686E71;
+    background-color: #fff;
+}
+.item .info{
+    padding: 20rpx;
+    background-color: #F5F5F5;
+}
+.item .info .phone{
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}
+.item .info .dfn{
+    display: flex;
+}
+.item .info .dfn .label{
+    width: 131rpx;
+    margin-right: 7rpx;
+}
+.item .info .dfn .desc{
+    flex: 1;
+    font-size: 24rpx;
+}
+.item .highlight{
+    color: #FF0054 ;
+}
+.item-bottom{
+    display: flex;
+    height: 76rpx;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon-selected{
+    width: 32rpx;
+    height: 32rpx;
+}
+.icon-edit{
+    width: 26rpx;
+    height: 30rpx;
+}
+.icon-delete{
+    width: 26rpx;
+    height: 26rpx;
+}
+.operate{
+    width: 200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-item{
+    display: flex;
+    align-items: center;
+}
+.icon-image{
+    margin-right: 10rpx;
+}

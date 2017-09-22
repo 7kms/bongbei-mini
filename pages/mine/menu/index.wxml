@@ -1,7 +1,7 @@
 <view class="container">
    <view class="avatar-bg">
-       <image class="user-avatar" mode="aspectFit" src="{{avatar}}"></image>
-       <text class="user-name">小yy</text>
+       <image class="user-avatar" mode="aspectFit" src="{{userInfo.avatarUrl || avatar}}"></image>
+       <text class="user-name">{{userInfo.nickName}}</text>
    </view>
    <view class="menu-list">
         <view class="menu-item" wx:for="{{menulist}}" wx:key="{{index}}" data-index="{{index}}" bindtap="menuClick">
