@@ -1,73 +1,43 @@
 <view class="container">
-    <view class="item">
-      <view class="info">
-          <view class="dfn">
-              <text class="label">收货人：</text>
-              <text class="desc text-one-line">刘振远</text>
-            </view>
-            <view class="dfn phone">
-              <text class="label">联系电话：</text>
-              <text class="desc highlight text-one-line">15910927347</text>
-            </view>
-            <view class="dfn">
-              <text class="label">收货地址：</text>
-              <text class="desc text-one-line">北京市朝阳区大羊坊8号院8号楼4单元1803,北京市朝阳区大羊坊8号院8号楼4单元1803</text>
-            </view>
-      </view>
-      <view class="item-bottom">
-         <view class="btn-address btn-item">
-           <text class="icon-circle icon-image"></text>
-           <!-- <image src="/images/icon-selected.png" mode="aspectFit" class="icon-selected"></image> -->
-           <text>默认地址</text>
-         </view>
-         <view class="operate">
-            <view class="btn-item">
-                <image src="/images/icon-edit.png" mode="aspectFit" class="icon-edit icon-image"></image>
-                <text>编辑</text>
-             </view>
-             <view class="btn-item">
-                <image src="/images/icon-delete.png" mode="aspectFit" class="icon-delete icon-image"></image>
-                <text>删除</text>
-             </view>
-         </view>
-      </view>
-    </view>
-    <view class="item">
-        <view class="info">
-            <view class="dfn">
-                <text class="label">收货人：</text>
-                <text class="desc text-one-line">刘振远</text>
-              </view>
-              <view class="dfn phone">
-                <text class="label">联系电话：</text>
-                <text class="desc highlight text-one-line">15910927347</text>
-              </view>
+      <view class="{{item.isDefault ?  'selected' : ''}} item" wx:for="{{list}}" wx:key="{{index}}">
+          <view class="info">
               <view class="dfn">
-                <text class="label">收货地址：</text>
-                <text class="desc text-one-line">北京市朝阳区大羊坊8号院8号楼4单元1803,北京市朝阳区大羊坊8号院8号楼4单元1803</text>
-              </view>
-        </view>
-        <view class="item-bottom">
-           <view class="btn-address btn-item">
-             <!-- <text class="icon-circle icon-image"></text> -->
-             <image src="/images/icon-selected.png" mode="aspectFit" class="icon-selected icon-image"></image>
-             <text class="highlight">默认地址</text>
-           </view>
-           <view class="operate">
-              <view class="btn-item">
-                  <image src="/images/icon-edit.png" mode="aspectFit" class="icon-edit icon-image"></image>
-                  <text>编辑</text>
-               </view>
-               <view class="btn-item">
-                  <image src="/images/icon-delete.png" mode="aspectFit" class="icon-delete icon-image"></image>
-                  <text>删除</text>
-               </view>
-           </view>
-        </view>
+                  <text class="label">收货人：</text>
+                  <text class="desc text-one-line">{{item.userName}}</text>
+                </view>
+                <view class="dfn phone">
+                  <text class="label">联系电话：</text>
+                  <text class="desc text-one-line">{{item.telNumber}}</text>
+                </view>
+                <view class="dfn">
+                  <text class="label">收货地址：</text>
+                  <text class="desc text-one-line">{{item.provinceName + item.cityName + item.countyName + item.detailInfo}}</text>
+                </view>
+          </view>
+          <view class="item-bottom">
+             <view class="btn-address btn-item" data-index="{{index}}" bindtap="setDefault">
+               <block>
+                 <text  wx:if="{{!item.isDefault}}" class="icon-circle icon-image"></text>
+                 <image wx:else src="/images/icon-selected.png" mode="aspectFit" class="icon-selected icon-image"></image>
+               </block>
+               <text class="{{item.isDefault ?  highlight : ''}}">默认地址</text>
+             </view>
+             <view class="operate" >
+                <view class="btn-item" data-index="{{index}}" bindtap="goEdit">
+                    <image src="/images/icon-edit.png" mode="aspectFit" class="icon-edit icon-image"></image>
+                    <text>编辑</text>
+                 </view>
+                 <view class="btn-item" data-index="{{index}}" bindtap="remove">
+                    <image src="/images/icon-delete.png" mode="aspectFit" class="icon-delete icon-image"></image>
+                    <text>删除</text>
+                 </view>
+             </view>
+          </view>
       </view>
-      <loading hidden="{{hiddenLoading}}">正在加载</loading>
+    
+      <loading hidden="{{hiddenLoading}}">{{lodingText}}</loading>
       <view class="fixed-footer address-list-footer">
-        <view class="left">添加新地址</view>
+        <view class="left" bindtap="addAddress">添加新地址</view>
         <view class="right">确定</view>
       </view>
  </view>

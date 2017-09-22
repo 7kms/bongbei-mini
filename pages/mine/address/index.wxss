@@ -10,6 +10,9 @@
     color: #686E71;
     background-color: #fff;
 }
+.item.selected .info .desc{
+    color: #FF0054 ;
+}
 .item .info{
     padding: 20rpx;
     background-color: #F5F5F5;
@@ -57,6 +60,7 @@
     justify-content: space-between;
 }
 .btn-item{
+    height: 76rpx;
     display: flex;
     align-items: center;
 }

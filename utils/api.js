@@ -1,7 +1,7 @@
 var config = require('./config')
 import { getToken,setToken } from './token'
 
-function $api({method='GET',url,data,success,fail}) {
+function $api({method='GET',url,data,success,fail,complete}) {
     url = config.serverUrl + url;
     wx.request({
         method,
@@ -21,7 +21,10 @@ function $api({method='GET',url,data,success,fail}) {
                 fail && fail()
             }
         },
-        fail
+        fail,
+        complete(msg){
+            complete && complete(msg)
+        }
     })
 }
 

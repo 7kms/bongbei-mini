@@ -1,14 +1,8 @@
 /**app.wxss**/
 page{
-  height: 100%;
   padding-bottom: 88rpx;
 }
 .container {
-  height: 100%;
-  /* display: flex; */
-  /* flex-direction: column;
-  align-items: center;
-  justify-content: space-between; */
   box-sizing: border-box;
   font-family: PingFangSC-Regular;
   font-size: 13px;
@@ -28,13 +22,6 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.weak{
-
-}
-.strong{
-
-}
-
 .icon-circle{
   display: block;
   width: 32rpx;
