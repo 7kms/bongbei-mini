@@ -50,3 +50,9 @@ page{
   flex: 1;
   background-color: #FCBBD0;
 }
+.list-empty{
+  display: flex;
+  height: 60rpx;
+  align-items: center;
+  justify-content: center;
+}
