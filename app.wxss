@@ -1,10 +1,10 @@
 /**app.wxss**/
 page{
-  padding-bottom: 88rpx;
+  font-family: PingFangSC-Regular;
 }
 .container {
   box-sizing: border-box;
-  font-family: PingFangSC-Regular;
+  
   font-size: 13px;
   color: #95A1A7;
 } 
@@ -47,6 +47,14 @@ page{
   background-color: #91D2E4;
 }
 .address-list-footer .right{
+  flex: 1;
+  background-color: #FCBBD0;
+}
+.product-footer .left{
+  width: 50%;
+  background-color: #91D2E4;
+}
+.product-footer .right{
   flex: 1;
   background-color: #FCBBD0;
 }

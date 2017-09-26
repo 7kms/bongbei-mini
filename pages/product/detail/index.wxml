@@ -1,4 +1,30 @@
 <view class="container">
-    product detail
+    <view wx:if="{{!loading}}">
+       
+        <swiper 
+            class="swiper"
+            indicator-dots="{{swiper.indicatorDots}}"
+            autoplay="{{swiper.autoplay}}" 
+            interval="{{swiper.interval}}" 
+            duration="{{swiper.duration}}"
+            circular="{{swiper.circular}}">
+            <block wx:for="{{info.pictures}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image src="{{ imagePrefix + item }}" class="picture" mode="aspectFill"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="item">
+            <view class="name">{{info.name}}</view>
+            <view class="desc">{{info.description}}</view>
+        </view>
+        
+
+
+        <view class="fixed-footer product-footer">
+            <view class="left" bindtap="addCart">加入购物车</view>
+            <view class="right" bindtap="buy">立即购买</view>
+        </view>
+    </view>
  </view>
    

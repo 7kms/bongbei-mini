@@ -1,0 +1,23 @@
+page{
+    padding-bottom: 88rpx;
+}
+.swiper{
+    min-height: 750rpx;
+}
+.picture{
+    width: 100%;
+    min-height: 750rpx;
+}
+
+.item{
+    padding: 20rpx 0 20rpx 25rpx;
+}
+.name{
+    font-size: 28rpx;
+    color: #000000;
+}
+.desc{
+    margin-top: 12rpx;
+    font-size: 24rpx;
+    color: #AAAAAA;
+}

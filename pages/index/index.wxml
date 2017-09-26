@@ -1,7 +1,13 @@
 <view class="container">
-  <view class="list">
-    <view class="item" wx:for="{{list}}" wx:key="{{item._id}}">
+  <scroll-view class="scroll-list" 
+    scroll-y 
+    lower-threshold="{{100}}" 
+    enable-back-to-top
+    bindscrolltolower="loadMore"
+    style="height:{{scrollHeight}}px"
+    >
+    <view class="item" wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap="goDetail">
       <image src="{{imagePrefix + item.cover}}"  mode="aspectFill" class="image"></image>
     </view>
-  </view>
+  </scroll-view>
 </view>
