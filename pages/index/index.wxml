@@ -1,3 +1,7 @@
 <view class="container">
-  <text>index</text>
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="{{item._id}}">
+      <image src="{{imagePrefix + item.cover}}"  mode="aspectFill" class="image"></image>
+    </view>
+  </view>
 </view>
