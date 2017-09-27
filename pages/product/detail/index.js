@@ -5,6 +5,7 @@ Page({
     data:{
         imagePrefix,
         loading: true,
+        showCart: false,
         info: {},
         swiper: {
             indicatorDots: true,
@@ -46,5 +47,57 @@ Page({
             title: '商品详情'
         })
         console.log(_id)
+    },
+    changeOrder(info){
+        let {order} = this.data;
+        order = Object.assign(order,info)
+        this.setData({
+            order
+        })
+    },
+    selectStandard(e){
+        let { standard } = e.currentTarget.dataset;
+        this.changeOrder({standard})
+    },
+    changeNumber(e){
+        let { store } = this.data.info;
+        let { order:{number} } = this.data;
+        let { type } = e.currentTarget.dataset;
+        if(type == 'add'){
+            number ++;
+        }else{
+            number --;
+        }
+        number = number < 1 ? number = 1 : number > store ? store : number;
+        this.changeOrder({number})
+    },
+    verify(){
+        let {order} = this.data;
+        if(!order.standard){
+            wx.showToast({
+                title: '请选择规格'
+            })
+            return false;
+        }
+        let {cover,name,price,_id} = this.data.info;
+        let obj = {
+            cover,
+            name,
+            price,
+            good_id: _id
+        }
+        return {...order,...obj}
+    },
+    addCart(){
+        let order = this.verify()
+        if(order){
+            console.log(order)
+        }
+        
+    },
+    closeCart(){
+        this.setData({
+            showCart: false
+        })
     }
 })

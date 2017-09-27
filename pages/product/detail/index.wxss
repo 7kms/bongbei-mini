@@ -141,9 +141,12 @@ page{
     background: rgba(0, 0, 0, 0.53);
 }
 .cart-view-wrap .cart-view{
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 500rpx;
     padding: 60rpx 0;
+    transform: translate3d(-50%,-50%,0);
     background-color: #fff;
     border-radius: 5rpx;
 }
@@ -152,8 +155,8 @@ page{
     display: flex;
     align-items: center;
     justify-content: center;
-    right: 0;
-    top: 0;
+    right: 5rpx;
+    top: 5rpx;
     width: 40rpx;
     height: 40rpx;
 }
@@ -177,16 +180,21 @@ page{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 74rpx;
+    margin: 74rpx auto  59rpx;
     font-size: 32rpx;
     color: #fff;
+    background-color: #FF0054;
+    border-radius: 100px;
 }
 .cart-btn .icon-cart-white{
     width: 43rpx;
     height: 42rpx;
+    margin-right: 10rpx;
 }
-.cart-btn .cart-continue{
+.cart-continue{
+    width: 150rpx;
+    margin: 0 auto;
     color: #FCBBD0;
     letter-spacing: 3px;
-    margin: 70rpx auto 0;
+    text-decoration: underline;
 }

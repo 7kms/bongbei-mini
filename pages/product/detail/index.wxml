@@ -27,9 +27,9 @@
             <text class="text">数量</text>
             <view class="operate">
                 <view class="number-box">
-                    <view class="btn-number subtract">-</view>
+                    <view class="btn-number subtract" data-type="subtract" bindtap="changeNumber">-</view>
                     <text class="number-text">{{order.number}}</text>
-                    <view class="btn-number add">+</view>
+                    <view class="btn-number add" data-type="add" bindtap="changeNumber">+</view>
                 </view>
                 <view class="btn-box">
                     <view class="btn btn-order">
@@ -45,8 +45,12 @@
             <text class="text">规格</text>
             <view class="operate">
                 <view class="tag-box">
-                    <view class="tag active">半径3cm</view>
-                    <view class="tag">半径5cm</view>
+                    <view class="tag {{item==order.standard ? 'active': ''}}" 
+                        wx:for="{{info.standards}}" 
+                        wx:key="{{index}}"
+                        data-standard="{{item}}"
+                        bindtap="selectStandard"
+                    >{{item}}</view>
                 </view>
             </view>
         </view>
@@ -64,20 +68,20 @@
         </view>
     </view>
 
-    <view class="cart-view-wrap">
-        <view class="cart-view">
-            <view  class="cart-close">
-                    <image src="/images/icon-delete.png"   class="cart-icon-close" mode="aspectFill"></image>
+    <view class="cart-view-wrap" bindtap="closeCart" wx:if="{{showCart}}">
+        <view class="cart-view text-center" catchtap>
+            <view class="cart-close" bindtap="closeCart">
+                <image src="/images/icon-delete.png"   class="cart-icon-close" mode="aspectFill"></image>
             </view>
             <view>
                 <image src="{{ imagePrefix + info.cover }}" class="cart-cover"  mode="aspectFill"></image>
             </view>
-            <view class="cart-desc">您选择的商品已加入购物车</view>
-            <view class="cart-btn">
-                <image src="{{ imagePrefix + info.cover }}" class="icon-cart-white"  mode="aspectFill"></image>
+            <view class="cart-desc text-center">您选择的商品已加入购物车</view>
+            <view class="cart-btn" bindtap="{{goCart}}">
+                <image src="/images/icon-cart-white.png" class="icon-cart-white"  mode="aspectFill"></image>
                 <text>购物车结算</text>
             </view>
-            <text class="cart-continue">继续逛逛</text>
+            <text class="cart-continue" bindtap="closeCart">继续逛逛</text>
         </view>
     </view>
  </view>
