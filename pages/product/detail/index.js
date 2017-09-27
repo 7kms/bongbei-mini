@@ -12,6 +12,9 @@ Page({
             interval: 3000,
             duration: 500,
             circular: true
+        },
+        order:{
+            number: 1
         }
     },
     getDetail(_id){

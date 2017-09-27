@@ -1,6 +1,5 @@
 <view class="container">
     <view wx:if="{{!loading}}">
-       
         <swiper 
             class="swiper"
             indicator-dots="{{swiper.indicatorDots}}"
@@ -14,17 +13,71 @@
                 </swiper-item>
             </block>
         </swiper>
-        <view class="item">
+        <view class="item info">
             <view class="name">{{info.name}}</view>
             <view class="desc">{{info.description}}</view>
         </view>
-        
-
-
+        <view class="item base">
+            <view class="price">{{info.price}}</view>
+            <view class="operate">
+                <view class="tag active">单笔消费满20元，立减5元</view>
+            </view>
+        </view>
+        <view class="item base">
+            <text class="text">数量</text>
+            <view class="operate">
+                <view class="number-box">
+                    <view class="btn-number subtract">-</view>
+                    <text class="number-text">{{order.number}}</text>
+                    <view class="btn-number add">+</view>
+                </view>
+                <view class="btn-box">
+                    <view class="btn btn-order">
+                       <image class="icon-order" src="/images/product-order.png" mode="scaleToFill"></image>
+                    </view>
+                    <view class="btn btn-cart">
+                       <image class="icon-cart" src="/images/product-cart.png" mode="scaleToFill"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="item base">
+            <text class="text">规格</text>
+            <view class="operate">
+                <view class="tag-box">
+                    <view class="tag active">半径3cm</view>
+                    <view class="tag">半径5cm</view>
+                </view>
+            </view>
+        </view>
+        <view class="item">
+            <view class="title">订购帮助</view>
+            <view class="desc">
+                <view>1、仅限北京海淀区、朝阳区配送。</view>
+                <view>2、微信支付可获得优惠券。</view>
+                <view>3、加入微信群和爱好做蛋糕的美女妈妈们交流经验。</view>
+            </view>
+        </view>
         <view class="fixed-footer product-footer">
             <view class="left" bindtap="addCart">加入购物车</view>
             <view class="right" bindtap="buy">立即购买</view>
         </view>
     </view>
+
+    <view class="cart-view-wrap">
+        <view class="cart-view">
+            <view  class="cart-close">
+                    <image src="/images/icon-delete.png"   class="cart-icon-close" mode="aspectFill"></image>
+            </view>
+            <view>
+                <image src="{{ imagePrefix + info.cover }}" class="cart-cover"  mode="aspectFill"></image>
+            </view>
+            <view class="cart-desc">您选择的商品已加入购物车</view>
+            <view class="cart-btn">
+                <image src="{{ imagePrefix + info.cover }}" class="icon-cart-white"  mode="aspectFill"></image>
+                <text>购物车结算</text>
+            </view>
+            <text class="cart-continue">继续逛逛</text>
+        </view>
+    </view>
  </view>
-   
