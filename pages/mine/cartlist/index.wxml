@@ -1,4 +1,20 @@
 <view class="container">
-    cart list
+    <view class="list">
+        <view class="item" wx:for="{{list}}" wx:key="{{item._id}}">
+            <block>
+                <text  wx:if="{{!item.selected}}" class="icon-circle icon-image"></text>
+                <image wx:else src="/images/icon-selected.png" mode="aspectFit" class="icon-selected icon-image"></image>
+            </block>
+            <view>
+                <text></text>
+                <text></text>
+                <text></text>
+            </view>
+            <view></view>
+            <view>
+                <view></view>
+                <view></view>
+            </view>
+        </view>
+    </view>
  </view>
-   

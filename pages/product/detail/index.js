@@ -91,13 +91,38 @@ Page({
     addCart(){
         let order = this.verify()
         if(order){
-            console.log(order)
+            $api({
+                method: 'POST',
+                url: `/cart`,
+                data:{
+                    info:order
+                },
+                success:(data)=>{
+                    console.log(data)
+                    this.setData({
+                        showCart: true
+                    })
+                },
+                fail:(err)=>{
+                    console.log(err)
+                }
+            })
         }
         
     },
     closeCart(){
         this.setData({
             showCart: false
+        })
+    },
+    goCart(){
+        wx.navigateTo({
+            url: '/pages/mine/cartlist/index'
+        })
+    },
+    goOrder(){
+        wx.navigateTo({
+            url: '/pages/mine/orderlist/index'
         })
     }
 })

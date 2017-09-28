@@ -21,7 +21,7 @@ Page({
                 title:'购物车',
                 icon: '/images/menu-cart.png',
                 class:'icon-cart',
-                path:'/pages/mine/cart/index'
+                path:'/pages/mine/cartlist/index'
             },
             {
                 title:'问客服',
