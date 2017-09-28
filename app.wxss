@@ -22,6 +22,7 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* icon start */
 .icon-circle{
   display: block;
   width: 32rpx;
@@ -29,7 +30,21 @@ page{
   border: 1px solid #686E71;
   border-radius: 50%;
 }
+.icon-selected{
+  width: 32rpx;
+  height: 32rpx;
+}
+.icon-edit{
+  width: 26rpx;
+  height: 30rpx;
+}
+.icon-delete{
+  width: 26rpx;
+  height: 26rpx;
+}
+/* icon end */
 
+/* footer start */
 .fixed-footer{
   position: fixed;
   display: flex;
@@ -58,6 +73,20 @@ page{
   flex: 1;
   background-color: #FCBBD0;
 }
+
+.cart-footer .right{
+  flex: 1;
+  background-color: #FCBBD0;
+}
+.cart-footer .left{
+  width: 50%;
+  background-color: #fff;
+  color: #686E71;
+}
+.cart-footer .left .price{
+  color: #FF0054;
+}
+/* footer end */
 .list-empty{
   display: flex;
   height: 60rpx;

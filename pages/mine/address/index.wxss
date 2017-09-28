@@ -41,18 +41,6 @@
     align-items: center;
     justify-content: space-between;
 }
-.icon-selected{
-    width: 32rpx;
-    height: 32rpx;
-}
-.icon-edit{
-    width: 26rpx;
-    height: 30rpx;
-}
-.icon-delete{
-    width: 26rpx;
-    height: 26rpx;
-}
 .operate{
     width: 200rpx;
     display: flex;

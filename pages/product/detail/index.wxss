@@ -22,10 +22,12 @@ page{
 .name{
     font-size: 28rpx;
     color: #000000;
+    word-break: break-all;
 }
 .desc{
     margin-top: 12rpx;
     color: #AAAAAA;
+    word-break: break-all;
 }
 .item.base{
     height: 80rpx;

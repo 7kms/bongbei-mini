@@ -23,7 +23,7 @@
                   </block>
                   <text class="{{item.isDefault ?  highlight : ''}}">默认地址</text>
                 </view>
-                <view class="operate" >
+                <view class="operate">
                     <view class="btn-item" data-index="{{index}}" bindtap="edit">
                         <image src="/images/icon-edit.png" mode="aspectFit" class="icon-edit icon-image"></image>
                         <text>编辑</text>

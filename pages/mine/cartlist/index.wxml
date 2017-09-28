@@ -1,20 +1,43 @@
 <view class="container">
-    <view class="list">
+    <view class="list" wx:if="{{list.length}}">
+        <view class="item item-header">
+            <view class="item-dfn item-status" bindtap="toggleAll">
+                <text  wx:if="{{!selectedAll}}" class="icon-circle icon-image"></text>
+                <image wx:else src="/images/icon-selected.png" mode="aspectFit" class="icon-selected icon-image"></image>
+            </view>
+            <view class="item-info">全选</view>
+        </view>
         <view class="item" wx:for="{{list}}" wx:key="{{item._id}}">
-            <block>
+            <view class="item-dfn item-status" data-index="{{index}}" bindtap="toggleCart">
                 <text  wx:if="{{!item.selected}}" class="icon-circle icon-image"></text>
                 <image wx:else src="/images/icon-selected.png" mode="aspectFit" class="icon-selected icon-image"></image>
-            </block>
-            <view>
-                <text></text>
-                <text></text>
-                <text></text>
             </view>
-            <view></view>
-            <view>
-                <view></view>
-                <view></view>
+            <view class="item-dfn item-info">
+                <image class="info-img" src="{{imagePrefix + item.info.cover}}" mode="aspectFit"></image>
+                <view class="info-dfn info-desc">
+                    <text class="desc-name">{{item.info.name}}</text>
+                    <text class="desc-number">数量：{{item.info.number}}</text>
+                    <text>规格：{{item.info.standard}}</text>
+                </view>
+                <view class="info-dfn info-price">¥{{item.info.price}}</view>
+                <view class="info-dfn info-operate">
+                    <view class="operate-btn">
+                        <image src="/images/icon-edit.png" mode="aspectFit" class="icon-edit icon-image"></image>
+                    </view>
+                    <view class="operate-btn">
+                        <image src="/images/icon-delete.png" mode="aspectFit" class="icon-delete icon-image"></image>
+                    </view>
+                </view>
             </view>
+            
         </view>
+        <view class="promotion-text">单笔消费满20元，立减5元</view>
+    </view>
+
+    <view class="fixed-footer cart-footer" wx:if="{{list.length}}">
+        <view class="left">
+            <text>待付</text><text class="price">：¥{{totalPrice}}</text>
+        </view>
+        <view class="right" bindtap="goPay">去支付</view>
     </view>
  </view>
