@@ -21,15 +21,14 @@
                 </view>
                 <view class="info-dfn info-price">¥{{item.info.price}}</view>
                 <view class="info-dfn info-operate">
-                    <view class="operate-btn">
+                    <view class="operate-btn" data-index="{{index}}" bindtap="goEdit">
                         <image src="/images/icon-edit.png" mode="aspectFit" class="icon-edit icon-image"></image>
                     </view>
-                    <view class="operate-btn">
+                    <view class="operate-btn" data-index="{{index}}" bindtap="goDelete">
                         <image src="/images/icon-delete.png" mode="aspectFit" class="icon-delete icon-image"></image>
                     </view>
                 </view>
             </view>
-            
         </view>
         <view class="promotion-text">单笔消费满20元，立减5元</view>
     </view>

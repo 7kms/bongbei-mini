@@ -32,10 +32,17 @@ Page({
         if(price >= 20)price-=5;
         return price.toFixed(2)
     },
-    toggleAll(){
-        let {list,selectedAll} = this.data;
-        selectedAll = !selectedAll;
-        list.forEach(item=>item.selected = selectedAll);
+    calculate(list,selectedAll){
+        if(typeof selectedAll != "undefined"){
+            list.forEach(item=>item.selected = selectedAll);
+        }else{
+            selectedAll = true;
+            list.forEach(item=>{
+                if(!item.selected){
+                    selectedAll = false;
+                }
+            })
+        }
         let totalPrice = this.calculateTotalPrice(list);
         this.setData({
             selectedAll,
@@ -43,21 +50,47 @@ Page({
             totalPrice
         })
     },
+    toggleAll(){
+        let {list,selectedAll} = this.data;
+        selectedAll = !selectedAll;
+        this.calculate(list,selectedAll)
+    },
     toggleCart(e){
         let {index} = e.currentTarget.dataset;
         let {list} = this.data;
         list[index].selected = !list[index].selected;
-        let selectedAll = true;
-        let totalPrice = this.calculateTotalPrice(list)
-        list.forEach(item=>{
-            if(!item.selected){
-                selectedAll = false;
+        this.calculate(list);
+    },
+    goEdit(e){
+        let {index} = e.currentTarget.dataset;
+        let {list} = this.data;
+    },
+    goDelete(e){
+        let {index} = e.currentTarget.dataset;
+        let {list} = this.data;
+        let id = list[index]._id;
+        let _this = this;
+        wx.showModal({
+            title: '提示',
+            content: '删除后无法找回,确认删除?',
+            success: function(res) {
+                if (res.confirm) {
+                $api({
+                    method:'POST',
+                    url: '/cart/remove',
+                    data:{
+                        cart_ids:[id]
+                    },
+                    success:(res)=>{
+                        list.splice(index,1)
+                        _this.calculate(list)
+                    },
+                    fail:(err)=>{
+                        console.log(err)
+                    }
+                })
+                }
             }
-        })
-        this.setData({
-            list,
-            selectedAll,
-            totalPrice
         })
     }
 })
