@@ -37,6 +37,6 @@
         <view class="left">
             <text>待付</text><text class="price">：¥{{totalPrice}}</text>
         </view>
-        <view class="right" bindtap="goPay">去支付</view>
+        <view class="right" bindtap="goOrder">去支付</view>
     </view>
  </view>

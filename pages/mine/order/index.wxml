@@ -1,4 +1,20 @@
 <view class="container">
-    order detail
+   <view class="address">
+      <view class="dfn">
+        <text class="label">收货人：</text>
+        <text class="desc text-one-line">{{item.userName}}</text>
+      </view>
+      <view class="dfn phone">
+        <text class="label">联系电话：</text>
+        <text class="desc text-one-line">{{item.telNumber}}</text>
+      </view>
+      <view class="dfn">
+        <text class="label">收货地址：</text>
+        <text class="desc text-one-line">{{item.provinceName + item.cityName + item.countyName + item.detailInfo}}</text>
+      </view>
+   </view>
+   <view class="list">
+       <view class="item"></view>
+   </view>
  </view>
    

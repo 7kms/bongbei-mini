@@ -92,5 +92,21 @@ Page({
                 }
             }
         })
+    },
+    goOrder(){
+        let {list} = this.data;
+        let orderList =  list.filter(item=>item.selected);
+        if(orderList.length < 1){
+            wx.showModal({
+                title: '提示',
+                content: '至少选择一件商品哦!',
+                showCancel: false
+              })
+        }else{
+            wx.setStorageSync('orderList', orderList)
+            wx.navigateTo({
+                url: '/pages/mine/order/index'
+            })
+        }
     }
 })
