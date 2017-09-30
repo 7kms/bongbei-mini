@@ -65,15 +65,17 @@ Page({
     pay(){
         if(!this.verify())return;
         let {address,totalPrice,list} = this.data;
-        let goods = list.map(item=>{
-            return item.info;
+        let goods = [];
+        let cart_ids = [];
+        list.forEach(item=>{
+            goods.push(item.info);
+            cart_ids.push(item._id);
         })
-        console.log(goods)
-        return false;
         let obj = {
             address,
             goods,
-            totalPrice
+            totalPrice,
+            cart_ids
         }
         $api({
             method:'POST',
@@ -84,6 +86,9 @@ Page({
                     title: '提示',
                     content: '提交成功',
                     showCancel: false
+                });
+                wx.navigateTo({
+                    url: '/pages/mine/orderlist/index'
                 })
             },
             fail:()=>{

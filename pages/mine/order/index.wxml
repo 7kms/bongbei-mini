@@ -1,19 +1,19 @@
 <view class="container">
-  <view class="top">
+  <view class="address-top">
       <view class="address">
           <view class="addr-info">
              <block wx:if="{{address}}">
                  <view class="dfn">
                    <text class="label">收货人：</text>
-                   <text class="desc text-one-line">{{address.userName}}</text>
+                   <text class="desc highlight-text text-one-line">{{address.userName}}</text>
                  </view>
                  <view class="dfn phone">
                    <text class="label">联系电话：</text>
-                   <text class="desc text-one-line">{{address.telNumber}}</text>
+                   <text class="desc highlight-text text-one-line">{{address.telNumber}}</text>
                  </view>
                  <view class="dfn">
                    <text class="label">收货地址：</text>
-                   <text class="desc text-one-line">{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</text>
+                   <text class="desc highlight-text text-one-line">{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</text>
                  </view>
             </block>
             <block wx:else>

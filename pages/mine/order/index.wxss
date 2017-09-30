@@ -2,42 +2,6 @@ page{
     padding-bottom: 88rpx;
     background: #FBFBFB;
 }
-.top{
-    padding: 25rpx;
-}
-.address{
-    display: flex;
-    align-items: center;
-}
-.address .addr-info{
-    flex: 1;
-}
-.address .desc{
-    color: #FF0054 ;
-}
-.address{
-    padding: 20rpx;
-    background-color: #F5F5F5;
-}
-.address .phone{
-    margin-top: 20rpx;
-    margin-bottom: 20rpx;
-}
-.address .dfn{
-    display: flex;
-}
-.address .dfn .label{
-    width: 131rpx;
-    margin-right: 7rpx;
-}
-.address .dfn .desc{
-    flex: 1;
-    font-size: 24rpx;
-}
-.address .icon-right{
-    width: 18rpx;
-    height: 32rpx;
-}
 
 .item{
     padding: 0 25rpx;
