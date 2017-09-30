@@ -74,39 +74,7 @@ page{
     width: 48rpx;
     height: 40rpx;
 }
-.number-box{
-    align-self: center;
-    display: flex;
-    align-items: center;
-    width: 170rpx;
-    height: 46rpx;
-    border-radius: 100px;
-    background-image: linear-gradient(-114deg, #FDBDD2 0%, #F1F1FF 51%, #9EEAFF 100%);
-}
-.number-text{
-    flex: 1;
-    color: #686E71;
-    text-align: center;
-}
-.btn-number{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36rpx;
-    width: 46rpx;
-    height: 46rpx;
-    border-radius: 100%;
-    box-sizing: border-box;
-    background-color: #fff;
-}
-.btn-number.subtract{
-    color: #91D2E4;
-    border: 1px solid #91D2E4;
-}
-.btn-number.add{
-    color: #FCBBD0;
-    border: 1px solid #FCBBD0;
-}
+
 .item .operate .tag{
     height: 40rpx;
     margin-right: 30rpx;

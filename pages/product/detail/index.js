@@ -74,8 +74,10 @@ Page({
     verify(){
         let {order} = this.data;
         if(!order.standard){
-            wx.showToast({
-                title: '请选择规格'
+            wx.showModal({
+                title: '提示',
+                content: '请选择规格!',
+                showCancel: false
             })
             return false;
         }
@@ -108,7 +110,12 @@ Page({
                 }
             })
         }
-        
+    },
+    buy(){
+        let order = this.verify()
+        if(order){
+            console.log(order)
+        } 
     },
     closeCart(){
         this.setData({

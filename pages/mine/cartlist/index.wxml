@@ -12,7 +12,7 @@
                 <text  wx:if="{{!item.selected}}" class="icon-circle icon-image"></text>
                 <image wx:else src="/images/icon-selected.png" mode="aspectFit" class="icon-selected icon-image"></image>
             </view>
-            <view class="item-dfn item-info">
+            <view class="item-dfn cart-info">
                 <image class="info-img" src="{{imagePrefix + item.info.cover}}" mode="aspectFit"></image>
                 <view class="info-dfn info-desc">
                     <text class="desc-name">{{item.info.name}}</text>

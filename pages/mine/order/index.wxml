@@ -1,20 +1,64 @@
 <view class="container">
-   <view class="address">
-      <view class="dfn">
-        <text class="label">收货人：</text>
-        <text class="desc text-one-line">{{item.userName}}</text>
-      </view>
-      <view class="dfn phone">
-        <text class="label">联系电话：</text>
-        <text class="desc text-one-line">{{item.telNumber}}</text>
-      </view>
-      <view class="dfn">
-        <text class="label">收货地址：</text>
-        <text class="desc text-one-line">{{item.provinceName + item.cityName + item.countyName + item.detailInfo}}</text>
-      </view>
-   </view>
+  <view class="top">
+      <view class="address">
+          <view class="addr-info">
+             <block wx:if="{{address}}">
+                 <view class="dfn">
+                   <text class="label">收货人：</text>
+                   <text class="desc text-one-line">{{address.userName}}</text>
+                 </view>
+                 <view class="dfn phone">
+                   <text class="label">联系电话：</text>
+                   <text class="desc text-one-line">{{address.telNumber}}</text>
+                 </view>
+                 <view class="dfn">
+                   <text class="label">收货地址：</text>
+                   <text class="desc text-one-line">{{address.provinceName + address.cityName + address.countyName + address.detailInfo}}</text>
+                 </view>
+            </block>
+            <block wx:else>
+               <text>未设置地址</text>
+            </block>
+          </view>
+          <image class="icon-right" src="/images/icon-more.png" mode="aspectFit"/>
+        </view>
+  </view>
+  
    <view class="list">
-       <view class="item"></view>
+       <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+         <view class="cart-info">
+            <image class="info-img" src="{{imagePrefix + item.info.cover}}" mode="aspectFit"></image>
+            <view class="info-dfn info-desc">
+                <text class="desc-name">{{item.info.name}}</text>
+                <text class="desc-number">数量：{{item.info.number}}</text>
+                <text>规格：{{item.info.standard}}</text>
+            </view>
+            <view class="info-dfn info-price">¥{{item.info.price}}</view>
+         </view>
+         <view class="item-dfn">
+           <view>数量</view>
+           <view class="number-box">
+              <view class="btn-number subtract" data-type="subtract" data-index="{{index}}" bindtap="changeNumber">-</view>
+              <text class="number-text">{{item.info.number}}</text>
+              <view class="btn-number add" data-type="add" data-index="{{index}}" bindtap="changeNumber">+</view>
+           </view>
+         </view>
+         <view class="item-dfn">
+            <view>店铺优惠</view>
+            <view class="highlight-text">单笔消费满20元，立减5元</view>
+         </view>
+         <view class="item-dfn">
+            <view>配送方式</view>
+            <view>快递免邮</view>
+         </view>
+       </view>
    </view>
+
+   <view class="fixed-footer cart-footer" wx:if="{{list.length}}">
+      <view class="left">
+          <text>待付</text><text class="price">：¥{{totalPrice}}</text>
+      </view>
+      <view class="right" bindtap="pay">提交订单</view>
+  </view>
  </view>
    

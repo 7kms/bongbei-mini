@@ -26,7 +26,7 @@ Page({
         let price = 0;
         list.forEach(item=>{
             if(item.selected){
-                price += item.info.price;
+                price += item.info.price * item.info.number;
             }
         });
         if(price >= 20)price-=5;
