@@ -1,0 +1,46 @@
+.filter{
+    display: flex;
+    height: 88rpx;
+    line-height: 88rpx;
+}
+.filter .filter-item{
+    flex: 1;
+    font-size: 28rpx;
+    color: #686E71;
+}
+
+.scroll-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 15rpx;
+}
+.scroll-list .item{
+    width: 350rpx;
+    /* max-width: 50%; */
+    margin-bottom: 38rpx;
+}
+.item .cover{
+    width: 350rpx;
+    height: 350rpx;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.item .name{
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    background-image: linear-gradient(-114deg, #FDBDD2 0%, #F1F1FF 51%, #9EEAFF 100%);
+}
+.item .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8rpx;
+    box-sizing: border-box;
+}
+.item .sales{
+    font-size: 20rpx;
+    color: #686E71;
+}

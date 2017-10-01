@@ -3,8 +3,6 @@ import { $api } from '../../utils/api'
 import { fetchUserInfo, login } from '../../utils/index'
 import { imagePrefix } from '../../utils/config'
 
-//获取应用实例
-var app = getApp()
 Page({
   queryInfo:{
     page: 1,
@@ -63,7 +61,6 @@ Page({
             this.getList()
         }
     });
-    
   },
   loadMore(){
     this.getList()

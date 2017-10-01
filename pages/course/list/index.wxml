@@ -1,4 +1,10 @@
 <view class="container">
-    <text>course list</text>
+    <view class="list" wx:if="{{list.length}}">
+        <view class="item text-center" wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap="goDetail">
+            <view class="title highlight-text">{{item.title}}</view>
+            <image class="cover" src="{{imagePrefix + item.cover}}" mode="aspectFill"></image>
+            <view class="line"></view>
+        </view>
+    </view>
  </view>
    

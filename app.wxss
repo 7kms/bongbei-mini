@@ -9,7 +9,7 @@ page{
   color: #95A1A7;
 } 
 .highlight-text{
-  color: #FF0054
+  color: #FF0054 !important;
 }
 .text-center{
   text-align: center;
