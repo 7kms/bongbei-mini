@@ -67,7 +67,7 @@ Page({
   },
   goDetail(e){
     let {id} = e.currentTarget.dataset;
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/product/detail/index?_id=${id}`
     })
   }

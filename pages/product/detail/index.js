@@ -123,12 +123,12 @@ Page({
         })
     },
     goCart(){
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/mine/cartlist/index'
         })
     },
     goOrder(){
-        wx.navigateTo({
+        wx.redirectTo({
             url: '/pages/mine/orderlist/index'
         })
     }

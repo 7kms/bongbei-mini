@@ -1,0 +1,51 @@
+page{
+    background-color: #FBFBFB;
+}
+.container .wrap{
+    display: flex;
+}
+.wrap .avatar{
+    width: 80rpx;
+    height: 80rpx;
+}
+.wrap .content{
+    position: relative;
+    width: 511rpx;
+    padding: 17rpx;
+    color: #fff;
+    font-size: 20rpx;
+    background-color:#FCBBD0;
+}
+.wrap .content .triangle{
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -20rpx;
+    margin-left: -20rpx;
+    border: 20rpx solid transparent;
+    border-right-color:  #FCBBD0;
+}
+.text-content{
+    box-sizing: border-box;
+    padding: 5rpx;
+    width: 700rpx;
+    height: 232rpx;
+    margin: 30rpx auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(225,224,224,0.50);
+}
+.operate{
+    margin: 0 auto;
+    width: 700rpx;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 35rpx;
+    text-align: right;
+}
+.operate .btn{
+    width:160rpx;
+    color: #fff;
+    font-size: 24rpx;
+    background: #FF0054;
+    border-radius: 11rpx;
+}

@@ -46,7 +46,7 @@ Page({
         var index = e.currentTarget.dataset.index;
         var path = this.data.menulist[index].path;
         getUserInfo(function(){
-            wx.navigateTo({
+            wx.redirectTo({
                 url: path
             })
         },function(){

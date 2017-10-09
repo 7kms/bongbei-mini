@@ -104,7 +104,7 @@ Page({
               })
         }else{
             wx.setStorageSync('orderList', orderList)
-            wx.navigateTo({
+            wx.redirectTo({
                 url: '/pages/mine/order/index'
             })
         }

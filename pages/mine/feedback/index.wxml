@@ -1,4 +1,17 @@
 <view class="container">
-    feedback
- </view>
-   
+    <form bindsubmit="submit">
+        <view class="wrap">
+            <view class="avatar"></view>
+            <view class="content">
+                <view class="triangle"></view>
+                您好，我是烘焙小程序产品经理—刘振远，联系方式：<text class="highlight-text">15910927347</text>（微信同号）。您有任何问题可写在下方或直接联系我，我们会及时处理您反馈的问题。谢谢！
+            </view>
+        </view>
+        <textarea class="text-content" name="textarea"/>
+        <view class="operate">
+            <view>
+                <button form-type="submit" class="btn">提交问题</button>
+            </view>
+        </view>
+    </form>
+</view>

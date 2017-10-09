@@ -25,7 +25,7 @@ Page({
     },
     goDetail(e){
         let {id} = e.currentTarget.dataset;
-        wx.navigateTo({
+        wx.redirectTo({
             url: `/pages/course/detail/index?id=${id}`
         })
     }

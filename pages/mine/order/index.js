@@ -85,11 +85,14 @@ Page({
                 wx.showModal({
                     title: '提示',
                     content: '提交成功',
-                    showCancel: false
+                    showCancel: false,
+                    success:()=>{
+                        wx.redirectTo({
+                            url: '/pages/mine/orderlist/index'
+                        })
+                    }
                 });
-                wx.navigateTo({
-                    url: '/pages/mine/orderlist/index'
-                })
+               
             },
             fail:()=>{
 
