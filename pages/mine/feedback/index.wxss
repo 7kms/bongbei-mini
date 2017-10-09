@@ -3,8 +3,14 @@ page{
 }
 .container .wrap{
     display: flex;
+    width: 700rpx;
+    margin: 0 auto;
+    align-items: center;
 }
 .wrap .avatar{
+    margin-right: 40rpx;
+}
+.pic-avatar{
     width: 80rpx;
     height: 80rpx;
 }
@@ -13,8 +19,9 @@ page{
     width: 511rpx;
     padding: 17rpx;
     color: #fff;
-    font-size: 20rpx;
+    font-size: 24rpx;
     background-color:#FCBBD0;
+    border-radius: 14rpx;
 }
 .wrap .content .triangle{
     position: absolute;

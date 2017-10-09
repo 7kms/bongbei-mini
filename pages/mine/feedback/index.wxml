@@ -1,7 +1,9 @@
 <view class="container">
     <form bindsubmit="submit">
         <view class="wrap">
-            <view class="avatar"></view>
+            <view class="avatar">
+                <image class="pic-avatar" src="/images/feedback.pic.jpg" mode="aspectFit" />
+            </view>
             <view class="content">
                 <view class="triangle"></view>
                 您好，我是烘焙小程序产品经理—刘振远，联系方式：<text class="highlight-text">15910927347</text>（微信同号）。您有任何问题可写在下方或直接联系我，我们会及时处理您反馈的问题。谢谢！

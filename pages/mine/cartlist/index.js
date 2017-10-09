@@ -8,6 +8,9 @@ Page({
         list:[]
     },
     onLoad(){
+        wx.setNavigationBarTitle({
+            title: '购物车'
+        })
         $api({
             method:'GET',
             url: '/cart',

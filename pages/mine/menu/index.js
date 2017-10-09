@@ -32,6 +32,9 @@ Page({
         ]
     },
     onLoad: function(){
+        wx.setNavigationBarTitle({
+            title: '我的'
+          })
         var _this = this
         getUserInfo(function(userInfo){
             console.log(userInfo)
@@ -46,7 +49,7 @@ Page({
         var index = e.currentTarget.dataset.index;
         var path = this.data.menulist[index].path;
         getUserInfo(function(){
-            wx.redirectTo({
+            wx.navigateTo({
                 url: path
             })
         },function(){

@@ -100,6 +100,9 @@ Page({
         })
     },
     onLoad(){
+        wx.setNavigationBarTitle({
+            title: '确认订单'
+        })
         this.getDefaultAddress()
         let orderList = wx.getStorageSync('orderList')
         wx.removeStorage({key:'orderList'})

@@ -6,6 +6,9 @@ Page({
         list: []
     },
     onLoad(){
+        wx.setNavigationBarTitle({
+            title: '我的订单'
+        })
         $api({
             method:'GET',
             url:'/order',

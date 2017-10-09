@@ -35,5 +35,10 @@ Page({
             return false
         }
         this.feedback(value)
+    },
+    onLoad(){
+        wx.setNavigationBarTitle({
+            title: '问客服'
+        })
     }
 })

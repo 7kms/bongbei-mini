@@ -73,6 +73,9 @@ Page({
         }
       },
     onLoad() {
+        wx.setNavigationBarTitle({
+          title: '烘培卷家族'
+        });
         this.getCategory();
         wx.getSystemInfo({
             success:(res)=>{
@@ -88,7 +91,7 @@ Page({
     },
     goDetail(e){
         let {id} = e.currentTarget.dataset;
-        wx.redirectTo({
+        wx.navigateTo({
             url: `/pages/product/detail/index?_id=${id}`
         })
     },
