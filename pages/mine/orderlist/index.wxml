@@ -1,44 +1,49 @@
 <view class="container">
-    <view class="order-item" wx:for="{{list}}" wx:key="{{item._id}}">
-        <view class="order-number">订单号: {{item._id}}</view>
-        <view class="address-top">
-            <view class="address">
-                <view class="addr-info">
-                    <view class="dfn">
-                        <text class="label">收货人：</text>
-                        <text class="desc text-one-line">{{item.address.userName}}</text>
-                      </view>
-                      <view class="dfn phone">
-                        <text class="label">联系电话：</text>
-                        <text class="desc text-one-line">{{item.address.telNumber}}</text>
-                      </view>
-                      <view class="dfn">
-                        <text class="label">收货地址：</text>
-                        <text class="desc text-one-line">{{item.address.provinceName + item.address.cityName + item.address.countyName + item.address.detailInfo}}</text>
-                      </view>
-                </view>
-              </view>
-        </view>
-        <view class="goods-list">
-            <view class="item" >
-                <view class="cart-info" wx:for="{{item.goods}}" wx:for-item="good" wx:for-index="i" wx:key="{{i}}">
-                   <image class="info-img" src="{{imagePrefix + good.cover}}" mode="aspectFit"></image>
-                   <view class="info-dfn info-desc">
-                       <text class="desc-name">{{good.name}}</text>
-                       <text class="desc-number">数量：{{good.number}}</text>
-                       <text>规格：{{good.standard}}</text>
-                   </view>
-                   <view class="info-dfn info-price">¥{{(good.price * good.number)}}</view>
-                </view>
-                <view class="item-dfn">
-                  <view class="highlight-text">单笔消费满20元，立减5元</view>
-                  <view>
-                    <text class="total-price">共{{item.goods.length}}件商品，合计</text>
-                    <text class="highlight-text">¥{{item.totalPrice}}</text>
+    <block wx:if="{{list.length}}" >
+        <view class="order-item" wx:for="{{list}}" wx:key="{{item._id}}">
+            <view class="order-number">订单号: {{item._id}}</view>
+            <view class="address-top">
+                <view class="address">
+                    <view class="addr-info">
+                        <view class="dfn">
+                            <text class="label">收货人：</text>
+                            <text class="desc text-one-line">{{item.address.userName}}</text>
+                          </view>
+                          <view class="dfn phone">
+                            <text class="label">联系电话：</text>
+                            <text class="desc text-one-line">{{item.address.telNumber}}</text>
+                          </view>
+                          <view class="dfn">
+                            <text class="label">收货地址：</text>
+                            <text class="desc text-one-line">{{item.address.provinceName + item.address.cityName + item.address.countyName + item.address.detailInfo}}</text>
+                          </view>
+                    </view>
                   </view>
-                </view>
-              </view>
+            </view>
+            <view class="goods-list">
+                <view class="item" >
+                    <view class="cart-info" wx:for="{{item.goods}}" wx:for-item="good" wx:for-index="i" wx:key="{{i}}">
+                      <image class="info-img" src="{{imagePrefix + good.cover}}" mode="aspectFit"></image>
+                      <view class="info-dfn info-desc">
+                          <text class="desc-name">{{good.name}}</text>
+                          <text class="desc-number">数量：{{good.number}}</text>
+                          <text>规格：{{good.standard}}</text>
+                      </view>
+                      <view class="info-dfn info-price">¥{{(good.price * good.number)}}</view>
+                    </view>
+                    <view class="item-dfn">
+                      <view class="highlight-text">单笔消费满20元，立减5元</view>
+                      <view>
+                        <text class="total-price">共{{item.goods.length}}件商品，合计</text>
+                        <text class="highlight-text">¥{{item.totalPrice}}</text>
+                      </view>
+                    </view>
+                  </view>
+            </view>
         </view>
+    </block>
+    <view wx:else class="list-empty">
+      列表为空
     </view>
  </view>
    

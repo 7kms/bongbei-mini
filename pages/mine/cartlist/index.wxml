@@ -32,6 +32,9 @@
         </view>
         <view class="promotion-text">单笔消费满20元，立减5元</view>
     </view>
+    <view wx:else class="list-empty">
+        列表为空
+      </view>
 
     <view class="fixed-footer cart-footer" wx:if="{{list.length}}">
         <view class="left">

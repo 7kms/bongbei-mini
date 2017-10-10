@@ -6,5 +6,8 @@
             <view class="line"></view>
         </view>
     </view>
+    <view wx:else class="list-empty">
+        列表为空
+      </view>
  </view>
    

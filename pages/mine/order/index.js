@@ -99,6 +99,14 @@ Page({
             }
         })
     },
+    goAddress(){
+        wx.navigateTo({
+            url: '/pages/mine/address/index'
+        })
+    },
+    onShow(){
+        this.getDefaultAddress()
+    },
     onLoad(){
         wx.setNavigationBarTitle({
             title: '确认订单'

@@ -82,7 +82,24 @@ Page({
                 callback && callback(address)
             },
             fail(err){
-                console.log(err)
+                wx.showModal({
+                    title: '提示',
+                    content: '请开允许小程序访问您的收货地址!',
+                    showCancel: false,
+                    complete(){
+                        wx.openSetting({
+                            success: (res) => {
+                                console.log(res.authSetting)
+                                /*
+                                 * res.authSetting = {
+                                 *   "scope.userInfo": true,
+                                 *   "scope.userLocation": true
+                                 * }
+                                 */
+                              }
+                        })
+                    }
+                })
             }
         })
     },

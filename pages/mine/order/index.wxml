@@ -1,6 +1,6 @@
 <view class="container">
   <view class="address-top">
-      <view class="address">
+      <view class="address" bindtap="goAddress">
           <view class="addr-info">
              <block wx:if="{{address}}">
                  <view class="dfn">

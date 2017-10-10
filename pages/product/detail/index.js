@@ -114,7 +114,11 @@ Page({
     buy(){
         let order = this.verify()
         if(order){
-            console.log(order)
+            let orderList = [{info:order}];
+            wx.setStorageSync('orderList', orderList)
+            wx.redirectTo({
+                url: '/pages/mine/order/index'
+            })
         } 
     },
     closeCart(){
