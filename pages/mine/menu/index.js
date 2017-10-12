@@ -32,9 +32,6 @@ Page({
         ]
     },
     onLoad: function(){
-        wx.setNavigationBarTitle({
-            title: '我的'
-          })
         var _this = this
         getUserInfo(function(userInfo){
             console.log(userInfo)

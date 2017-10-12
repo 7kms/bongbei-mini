@@ -6,9 +6,6 @@ Page({
         imagePrefix
     },
     onLoad(){
-        wx.setNavigationBarTitle({
-            title: "烘焙小课程"
-        })
         $api({
             method:'GET',
             url: '/course',
@@ -25,7 +22,7 @@ Page({
     },
     goDetail(e){
         let {id} = e.currentTarget.dataset;
-        wx.redirectTo({
+        wx.navigateTo({
             url: `/pages/course/detail/index?id=${id}`
         })
     }

@@ -73,9 +73,6 @@ Page({
         }
       },
     onLoad() {
-        wx.setNavigationBarTitle({
-          title: '烘培卷家族'
-        });
         this.getCategory();
         wx.getSystemInfo({
             success:(res)=>{
