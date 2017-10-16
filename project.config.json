@@ -1,14 +1,14 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true
 	},
 	"compileType": "weapp",
 	"libVersion": "1.5.3",
-	"appid": "wx868cb0ffc40ace47",
+	"appid": "wx07717b0f6f3ccb61",
 	"projectname": "bongbei",
 	"condition": {
 		"weapp": {

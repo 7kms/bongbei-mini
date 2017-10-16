@@ -65,6 +65,7 @@ Page({
                 pending: false,
                 hasMore: newList.length >= this.queryInfo.limit
               })
+              wx.hideLoading()
             },
             fail:()=>{
       
@@ -94,11 +95,15 @@ Page({
     },
     changeFilter(e){
       let {id,index} = e.currentTarget.dataset;
-      this.queryInfo.options.category = id;
       if(id == 'all'){
-        delete this.queryInfo.options.category
+        if(!this.queryInfo.options.category)return false;
+        delete this.queryInfo.options.category;
+      }else{
+        if(this.queryInfo.options.category == id){
+          return false;
+        }
+        this.queryInfo.options.category = id;
       }
-      
       this.queryInfo.page = 1;
       this.queryInfo.skip = 0;
       let {category} = this.data;
@@ -108,8 +113,13 @@ Page({
       this.setData({
         category,
         list: [],
+        loading: true,
         hasMore: true
       },()=>{
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })  
         this.getList();
       });
     }

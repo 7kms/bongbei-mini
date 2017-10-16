@@ -20,8 +20,8 @@
             </view>
         </view>
     </view>
-    <view wx:else class="list-empty">
+    <view wx:elif="{{list.length==0 && !loading}}" class="list-empty">
         列表为空
-      </view>
+    </view>
   </scroll-view>
 </view>
