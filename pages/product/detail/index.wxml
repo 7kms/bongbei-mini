@@ -59,9 +59,14 @@
         <view class="item">
             <view class="title">订购帮助</view>
             <view class="desc">
-                <view>1、仅限北京海淀区、朝阳区配送。</view>
-                <view>2、微信支付可获得优惠券。</view>
-                <view>3、加入微信群和爱好做蛋糕的美女妈妈们交流经验。</view>
+                <block wx:if="{{info.helpInfo}}">
+                    <view wx:for="{{info.helpInfo}}" wx:key="{{index}}">{{item}}</view>
+                </block>
+                <block wx:else>
+                    <view>1、仅限北京海淀区、朝阳区配送。</view>
+                    <view>2、微信支付可获得优惠券。</view>
+                    <view>3、加入微信群和爱好做蛋糕的美女妈妈们交流经验。</view>
+                </block>
             </view>
         </view>
         <view class="fixed-footer product-footer">

@@ -31,6 +31,11 @@ Page({
                 wx.setNavigationBarTitle({
                     title: data.name
                 })
+                if(data.helpInfo){
+                    console.log(data.helpInfo)
+                    data.helpInfo = data.helpInfo.split(/\r?\n/);
+                    console.log(data.helpInfo)
+                }
                 this.setData({
                     info: data,
                     loading: false
