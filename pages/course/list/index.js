@@ -5,7 +5,7 @@ Page({
     data:{
         imagePrefix
     },
-    onLoad(){
+    onShow(){
         $api({
             method:'GET',
             url: '/course',

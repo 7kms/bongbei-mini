@@ -11,6 +11,7 @@
     "pages/mine/feedback/index",
     "pages/mine/menu/index",
     "pages/mine/order/index",
+    "pages/mine/orderview/index",
     "pages/mine/orderlist/index"
   ],
   "window":{

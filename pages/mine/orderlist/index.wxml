@@ -1,6 +1,6 @@
 <view class="container">
     <block wx:if="{{list.length}}" >
-        <view class="order-item" wx:for="{{list}}" wx:key="{{item._id}}">
+        <view class="order-item" wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap="goDetail">
             <view class="order-number">订单号: {{item._id}}</view>
             <view class="address-top">
                 <view class="address">

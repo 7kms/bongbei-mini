@@ -11,7 +11,7 @@ Page({
         projections:{
           cover: 1,
           name: 1,
-          price: 1,
+          priceInfo: 1,
           sales: 1,
           category: 1
         },
@@ -73,7 +73,7 @@ Page({
           })
         }
       },
-    onLoad() {
+    onShow() {
         this.getCategory();
         wx.getSystemInfo({
             success:(res)=>{

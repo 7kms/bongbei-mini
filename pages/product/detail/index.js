@@ -56,8 +56,9 @@ Page({
         })
     },
     selectStandard(e){
-        let { standard } = e.currentTarget.dataset;
-        this.changeOrder({standard})
+        let { standard,index,price } = e.currentTarget.dataset;
+        console.log(standard)
+        this.changeOrder({standard,price})
     },
     changeNumber(e){
         let { store } = this.data.info;
@@ -81,11 +82,10 @@ Page({
             })
             return false;
         }
-        let {cover,name,price,_id} = this.data.info;
+        let {cover,name,_id} = this.data.info;
         let obj = {
             cover,
             name,
-            price,
             good_id: _id
         }
         return {...order,...obj}

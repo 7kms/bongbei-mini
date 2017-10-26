@@ -18,7 +18,7 @@
             <view class="desc">{{info.description}}</view>
         </view>
         <view class="item base">
-            <view class="price">{{info.price}}</view>
+            <view class="price">{{order.price ? order.price : info.priceInfo[0].price}}</view>
             <view class="operate">
                 <view class="tag active">单笔消费满20元，立减5元</view>
             </view>
@@ -45,12 +45,14 @@
             <text class="text">规格</text>
             <view class="operate">
                 <view class="tag-box">
-                    <view class="tag {{item==order.standard ? 'active': ''}}" 
-                        wx:for="{{info.standards}}" 
+                    <view class="tag {{item.text==order.standard ? 'active': ''}}" 
+                        wx:for="{{info.priceInfo}}" 
                         wx:key="{{index}}"
-                        data-standard="{{item}}"
+                        data-index="{{index}}"
+                        data-price="{{item.price}}"
+                        data-standard="{{item.text}}"
                         bindtap="selectStandard"
-                    >{{item}}</view>
+                    >{{item.text}}</view>
                 </view>
             </view>
         </view>

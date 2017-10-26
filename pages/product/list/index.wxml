@@ -15,7 +15,7 @@
             <image src="{{imagePrefix + item.cover}}"  mode="aspectFill" class="cover"></image>
             <view class="name highlight-text text-one-line">{{item.name}}</view>
             <view class="info">
-                <view class="highlight-text">¥{{item.price}}</view>
+                <view class="highlight-text">¥{{item.priceInfo[0].price}}</view>
                 <view class="sales">销量：{{item.sales}}</view>
             </view>
         </view>

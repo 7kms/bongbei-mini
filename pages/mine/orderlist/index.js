@@ -9,6 +9,9 @@ Page({
         wx.setNavigationBarTitle({
             title: '我的订单'
         })
+        
+    },
+    onShow(){
         $api({
             method:'GET',
             url:'/order',
@@ -21,5 +24,11 @@ Page({
 
             }
         })
+    },
+    goDetail(e){
+        let {id} = e.currentTarget.dataset;
+        wx.navigateTo({
+            url: `/pages/mine/orderview/index?id=${id}`
+        });
     }
 })

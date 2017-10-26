@@ -52,7 +52,7 @@ Page({
       })
     }
   },
-  onLoad() {
+  onShow() {
     wx.getSystemInfo({
         success:(res)=>{
             this.setData({
