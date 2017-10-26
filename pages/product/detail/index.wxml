@@ -18,7 +18,7 @@
             <view class="desc">{{info.description}}</view>
         </view>
         <view class="item base">
-            <view class="price">{{order.price ? order.price : info.priceInfo[0].price}}</view>
+            <view class="price">￥{{order.price ? order.price : info.priceInfo[0].price}} </view>
             <view class="operate">
                 <view class="tag active">单笔消费满20元，立减5元</view>
             </view>

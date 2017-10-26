@@ -39,6 +39,7 @@ page{
     width: 100rpx;
 }
 .item .price{
+    width: 170rpx;
     font-size: 36rpx;
     color: #FF0054;
 }
