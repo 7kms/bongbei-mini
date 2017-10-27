@@ -12,7 +12,8 @@ Page({
       onMainPage: true
     },
     projections:{
-      cover: 1
+      cover: 1,
+      mainPageCover:1
     }
   },
   data: {
@@ -34,6 +35,11 @@ Page({
         url: '/goods',
         data: queryInfo,
         success:(newList)=>{
+          newList.forEach(item=>{
+            if(!item.mainPageCover){
+              item.mainPageCover = item.cover
+            }
+          })
           let oldList = this.data.list;
           let list = oldList.concat(newList)
           this.queryInfo.page++;

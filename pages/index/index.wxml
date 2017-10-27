@@ -7,7 +7,7 @@
     style="height:{{scrollHeight}}px"
     >
     <view class="item"wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap="goDetail">
-      <image src="{{imagePrefix + item.cover}}"  mode="aspectFill" class="image"></image>
+      <image src="{{imagePrefix + item.mainPageCover}}"  mode="aspectFill" class="image"></image>
     </view>
   </scroll-view>
 </view>
