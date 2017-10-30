@@ -1,7 +1,10 @@
 <view>
     <view class="container">
         <view class="item" wx:if="{{info}}" wx:for="{{info.sections}}" wx:key="{{index}}">
-            <view wx:if="{{item.desc}}">{{item.desc}}</view>
+            <!-- <view wx:if="{{item.desc}}">{{item.desc}}</view> -->
+            <block wx:if="{{item.desc}}">
+                    <view wx:for="{{item.desc}}" wx:key="{{index}}">{{item}}</view>
+                </block>
             <image wx:if="{{item.picture}}" class="picture" src="{{imagePrefix + item.picture}}"></image>
         </view>
     </view>

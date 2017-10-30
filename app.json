@@ -17,7 +17,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "烘培小程序",
+    "navigationBarTitleText": "卷趣烘焙",
     "navigationBarTextStyle":"black",
     "backgroundColor": "#fbfbfb"
   },
@@ -37,7 +37,7 @@
         "pagePath": "pages/product/list/index",
         "iconPath": "images/icon_product.png",
         "selectedIconPath": "images/icon_product_active.png",
-        "text": "产品"
+        "text": "甜品"
       },
       {
         "pagePath": "pages/course/list/index",

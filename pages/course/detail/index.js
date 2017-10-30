@@ -9,6 +9,11 @@ Page({
             method:'GET',
             url: `/course/${id}`,
             success:(res)=>{
+                if(res.sections){
+                    res.sections.forEach(item=>{
+                        item.desc = item.desc.split(/\r?\n/);
+                    })
+                }
                 this.setData({
                     info: res
                 })
