@@ -61,9 +61,26 @@ let login = function(){
         }
     });
 }
-
+let sharePage = (obj)=>{
+    if(!obj.onShareAppMessage){
+        obj.onShareAppMessage = ()=>{
+            return {
+                title: '卷趣烘焙 | 甜品',
+                path: '/pages/product/list/index',
+                success: function(res) {
+                  // 转发成功
+                },
+                fail: function(res) {
+                  // 转发失败
+                }
+            }
+        }
+    }
+    return obj;
+}
 export {
     fetchUserInfo,
     getUserInfo,
-    login
+    login,
+    sharePage
 }

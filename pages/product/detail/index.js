@@ -47,6 +47,7 @@ Page({
         })
     },
     onLoad({_id}){
+        this._id = _id;
         this.getDetail(_id)
         wx.setNavigationBarTitle({
             title: '商品详情'
@@ -140,5 +141,19 @@ Page({
         wx.redirectTo({
             url: '/pages/mine/orderlist/index'
         })
+    },
+    onShareAppMessage() {
+        let _id = this._id;
+        let name = this.data.info ? this.data.info.name : '';
+        return {
+          title: `卷趣烘焙 | ${name}`,
+          path: '/pages/product/detail/index?_id='+_id,
+          success: function(res) {
+            // 转发成功
+          },
+          fail: function(res) {
+            // 转发失败
+          }
+        }
     }
 })

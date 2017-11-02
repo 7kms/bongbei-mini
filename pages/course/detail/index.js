@@ -5,6 +5,7 @@ Page({
         imagePrefix
     },
     onLoad({id}){
+        this.id = id;
         $api({
             method:'GET',
             url: `/course/${id}`,
@@ -26,5 +27,19 @@ Page({
 
             }
         }) 
+    },
+    onShareAppMessage() {
+        let id = this.id;
+        let name = this.data.info ? this.data.info.title : '';
+        return {
+          title: `卷趣烘焙 | ${name}`,
+          path: '/pages/product/detail/index?id='+id,
+          success: function(res) {
+            // 转发成功
+          },
+          fail: function(res) {
+            // 转发失败
+          }
+        }
     }
 })

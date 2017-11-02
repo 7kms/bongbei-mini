@@ -1,9 +1,9 @@
 //index.js
 import { $api } from '../../../utils/api'
-import { fetchUserInfo, login } from '../../../utils/index'
+import { fetchUserInfo, login, sharePage } from '../../../utils/index'
 import { imagePrefix } from '../../../utils/config'
 
-Page({
+Page(sharePage({
     queryInfo:{
         page: 1,
         limit: 15,
@@ -73,6 +73,17 @@ Page({
           })
         }
       },
+      onHide(){
+        this.queryInfo.page=1;
+        this.queryInfo.skip=0;
+        this.queryInfo.options = {};
+        this.setData({
+          list:[],
+          loading: true,
+          hasMore: true,
+          pending: false
+        })
+      },
     onShow() {
         this.getCategory();
         wx.getSystemInfo({
@@ -123,4 +134,4 @@ Page({
         this.getList();
       });
     }
-})
+}))

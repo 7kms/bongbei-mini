@@ -1,13 +1,20 @@
 <view class="container">
-  <scroll-view class="scroll-list" 
-    scroll-y 
-    lower-threshold="{{100}}" 
-    enable-back-to-top
-    bindscrolltolower="loadMore"
-    style="height:{{scrollHeight}}px"
-    >
-    <view class="item"wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap="goDetail">
-      <image src="{{imagePrefix + item.mainPageCover}}"  mode="aspectFill" class="image"></image>
-    </view>
-  </scroll-view>
+  <block wx:if="{{fromActivity}}">
+      <view bindtap="goProduct" style="height:{{scrollHeight}}px" >
+        <image src="{{imagePrefix + info.picture}}"   mode="aspectFit" class="activity-pic"></image>
+      </view>
+  </block>
+  <block wx:else>
+      <scroll-view class="scroll-list" 
+        scroll-y 
+        lower-threshold="{{100}}" 
+        enable-back-to-top
+        bindscrolltolower="loadMore"
+        style="height:{{scrollHeight}}px"
+      >
+      <view class="item"wx:for="{{list}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap="goDetail">
+        <image src="{{imagePrefix + item.mainPageCover}}"  mode="aspectFill" class="image"></image>
+      </view>
+    </scroll-view>
+  </block>
 </view>

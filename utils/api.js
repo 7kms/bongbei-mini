@@ -19,7 +19,7 @@ function $api({method='GET',url,data={},success,fail,complete}) {
                 setToken(res.header.token)
             }
             if(res.statusCode >= 200 && res.statusCode < 300){
-                success(res.data.data)
+                success(res.data.data, res.data)
             }else{
                 fail && fail()
             }

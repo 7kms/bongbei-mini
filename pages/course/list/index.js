@@ -25,5 +25,17 @@ Page({
         wx.navigateTo({
             url: `/pages/course/detail/index?id=${id}`
         })
+    },
+    onShareAppMessage() {
+        return {
+          title: `卷趣烘焙 | 课程`,
+          path: '/pages/course/list/index',
+          success: function(res) {
+            // 转发成功
+          },
+          fail: function(res) {
+            // 转发失败
+          }
+        }
     }
 })

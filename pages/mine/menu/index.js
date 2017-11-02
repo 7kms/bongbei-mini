@@ -52,5 +52,17 @@ Page({
         },function(){
 
         })
-    }
+    },
+    onShareAppMessage:  () => {
+        return {
+          title: '卷趣烘焙 | 甜品',
+          path: '/product/list/index',
+          success: function(res) {
+            // 转发成功
+          },
+          fail: function(res) {
+            // 转发失败
+          }
+        }
+      }
 })
