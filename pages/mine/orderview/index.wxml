@@ -1,5 +1,8 @@
 <view class="container">
-  <view class="order-number">订单号: {{id}}</view>
+  <view class="order-number">
+    <text>订单号: {{id}}</text>
+    <text wx:if="{{!loading && !paid}}" class="highlight-text" >未支付</text>
+  </view>
   <view class="address-top">
       <view class="address" bindtap="goAddress">
           <view class="addr-info">
@@ -56,10 +59,18 @@
    </view>
 
    <view class="fixed-footer cart-footer" wx:if="{{list.length}}">
-      <view class="left">
-          <text>已付</text><text class="price">：¥{{totalPrice}}</text>
-      </view>
-      <view class="right" bindtap="remove">删除订单</view>
+     <block wx:if="{{paid}}">
+        <view class="left" >
+            <text>已付</text><text class="price">：¥{{totalPrice}}</text>
+        </view>
+        <view class="right" bindtap="remove">删除订单</view>
+     </block>
+     <block wx:else>
+        <view class="left" >
+            <text class="price">：¥{{totalPrice}}</text>
+        </view>
+        <view class="right" bindtap="payagain">立即支付</view>
+     </block>
   </view>
  </view>
    

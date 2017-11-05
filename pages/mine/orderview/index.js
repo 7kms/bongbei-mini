@@ -3,8 +3,10 @@ import { imagePrefix } from '../../../utils/config'
 Page({
     data:{
         id:'',
+        loading: true,
         imagePrefix,
         totalPrice: 0,
+        paid: false,
         list: []
     },
     getOrder(id){
@@ -13,9 +15,11 @@ Page({
             url:'/order/' + id,
             success:(data)=>{
                this.setData({
+                   loading:false,
                    list: data.goods,
                    address: data.address,
-                   totalPrice: data.totalPrice
+                   totalPrice: data.totalPrice,
+                   paid: data.paid
                })
             },
             fail:()=>{
@@ -29,6 +33,19 @@ Page({
             title: '查看订单'
         });
         this.getOrder(id)
+    },
+    payagain(){
+        let {id} = this.data;
+        $api({
+            method:'POST',
+            url:'/order/payagain',
+            success:(data)=>{
+                
+            },
+            fail:()=>{
+
+            }
+        })
     },
     removeRemote(){
         let {id} = this.data;

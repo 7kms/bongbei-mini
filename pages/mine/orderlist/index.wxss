@@ -10,7 +10,11 @@ page{
     padding: 0 45rpx;
     color: #000;
     background-color:  #D4ECF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .item{
     padding: 0 25rpx;
     background-color: #fff;

@@ -82,16 +82,45 @@ Page({
             url:'/order',
             data: obj,
             success:(data)=>{
-                wx.showModal({
-                    title: '提示',
-                    content: '提交成功',
-                    showCancel: false,
-                    success:()=>{
-                        wx.redirectTo({
-                            url: '/pages/mine/orderlist/index'
-                        })
+                console.log(data);
+                /**
+                 *  {
+                        appId:"wxf860****03b5dfb"
+                        nonceStr:"o5any3uj14tyfjr8wa249n5s0nnp9rkl"
+                        package:"prepay_id=wx20171104151803201b17a3100900948881"
+                        paySign:"D2632F71E4CB7E9E18D329460FDF5EB0"
+                        signType:"MD5"
+                        timeStamp:"1509779883"
                     }
-                });
+                 */
+                let obj = Object.assign({
+                    'success':function(res){
+                        wx.showModal({
+                            title: '提示',
+                            content: '支付成功',
+                            showCancel: false,
+                            success:()=>{
+                                wx.redirectTo({
+                                    url: '/pages/mine/orderlist/index'
+                                })
+                            }
+                        });
+                    },
+                    'fail':function(res){
+                        wx.showModal({
+                            title: '提示',
+                            content: '取消支付',
+                            showCancel: false,
+                            success:()=>{
+                                wx.redirectTo({
+                                    url: '/pages/mine/orderlist/index'
+                                })
+                            }
+                        });
+                    }
+                },data)
+                wx.requestPayment(obj)
+               
                
             },
             fail:()=>{
