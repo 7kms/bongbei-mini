@@ -62,8 +62,46 @@ Page({
         }
         return true;
     },
+    payagain(id){
+        $api({
+            method:'POST',
+            url:'/order/payagain/'+id,
+            success:(data)=>{
+                let obj = Object.assign({
+                    'success':function(res){
+                        wx.showModal({
+                            title: '提示',
+                            content: '支付成功',
+                            showCancel: false,
+                            success:()=>{
+                                wx.redirectTo({
+                                    url: '/pages/mine/orderlist/index'
+                                })
+                            }
+                        });
+                    },
+                    'fail':function(res){
+                        wx.showModal({
+                            title: '提示',
+                            content: '取消支付',
+                            showCancel: false,
+                            success:()=>{}
+                        });
+                    }
+                },data)
+                wx.requestPayment(obj)
+            },
+            fail:()=>{
+
+            }
+        })
+    },
     pay(){
         if(!this.verify())return;
+        if(this._id){
+            this.payagain(this._id);
+            return;
+        }
         let {address,totalPrice,list} = this.data;
         let goods = [];
         let cart_ids = [];
@@ -81,8 +119,8 @@ Page({
             method:'POST',
             url:'/order',
             data: obj,
-            success:(data)=>{
-                console.log(data);
+            success:({config,_id})=>{
+                this._id = _id;
                 /**
                  *  {
                         appId:"wxf860****03b5dfb"
@@ -118,7 +156,7 @@ Page({
                             }
                         });
                     }
-                },data)
+                },config)
                 wx.requestPayment(obj)
                
                

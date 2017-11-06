@@ -3,6 +3,7 @@
     font-size: 26rpx;
     color: #686E71;
     background-color: #FBFBFB;
+    padding-bottom: 88rpx;
 }
 .item{
     padding: 25rpx 25rpx 0;

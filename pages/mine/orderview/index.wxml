@@ -57,7 +57,9 @@
          </view>
        </view>
    </view>
-
+   <view class="remove-order"  wx:if="{{list.length && !paid}}">
+     <view bindtap="remove" class="remove-btn">删除订单</view>
+   </view>
    <view class="fixed-footer cart-footer" wx:if="{{list.length}}">
      <block wx:if="{{paid}}">
         <view class="left" >
@@ -67,7 +69,7 @@
      </block>
      <block wx:else>
         <view class="left" >
-            <text class="price">：¥{{totalPrice}}</text>
+            <text>待付</text><text class="price">：¥{{totalPrice}}</text>
         </view>
         <view class="right" bindtap="payagain">立即支付</view>
      </block>

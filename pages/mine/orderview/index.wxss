@@ -28,3 +28,15 @@ page{
 .item .item-dfn:last-child{
     border: none;
 }
+.remove-order{
+    margin-top: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.remove-order .remove-btn{
+    padding: 10rpx;
+    background-color: #FF0054;
+    color: #fff;
+    border-radius: 10rpx;
+}

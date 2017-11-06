@@ -1,7 +1,7 @@
 <view class="container">
   <block wx:if="{{fromActivity}}">
       <view bindtap="goProduct" style="height:{{scrollHeight}}px" >
-        <image src="{{imagePrefix + info.picture}}"   mode="aspectFit" class="activity-pic"></image>
+        <image src="{{imagePrefix + info.picture}}"   mode="widthFix" class="activity-pic"></image>
       </view>
   </block>
   <block wx:else>

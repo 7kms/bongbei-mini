@@ -38,9 +38,31 @@ Page({
         let {id} = this.data;
         $api({
             method:'POST',
-            url:'/order/payagain',
+            url:'/order/payagain/'+id,
             success:(data)=>{
-                
+                let obj = Object.assign({
+                    'success':function(res){
+                        wx.showModal({
+                            title: '提示',
+                            content: '支付成功',
+                            showCancel: false,
+                            success:()=>{
+                                wx.redirectTo({
+                                    url: '/pages/mine/orderlist/index'
+                                })
+                            }
+                        });
+                    },
+                    'fail':function(res){
+                        wx.showModal({
+                            title: '提示',
+                            content: '取消支付',
+                            showCancel: false,
+                            success:()=>{}
+                        });
+                    }
+                },data)
+                wx.requestPayment(obj)
             },
             fail:()=>{
 

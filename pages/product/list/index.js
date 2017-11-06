@@ -85,6 +85,10 @@ Page(sharePage({
         })
       },
     onShow() {
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        });
         this.getCategory();
         wx.getSystemInfo({
             success:(res)=>{
