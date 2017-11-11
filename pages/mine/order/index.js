@@ -4,7 +4,12 @@ Page({
     data:{
         imagePrefix,
         totalPrice: 0,
-        list: []
+        list: [],
+        promotion:{enable:false}
+    },
+    initial(){
+        this.getDefaultAddress();
+        this.getPromotion();
     },
     getDefaultAddress(){
         $api({
@@ -23,13 +28,30 @@ Page({
             }
         })
     },
+    getPromotion(){
+        $api({
+            method:'GET',
+            url:'/promotion',
+            success:(data)=>{
+                this.setData({
+                    promotion:data
+                })
+                this.changeOrder()
+
+            }
+        })
+    },
     changeOrder(list){
+        if(!list)list = this.data.list;
         let totalPrice = 0;
         list.forEach(item=>{
             let {info} = item;
             totalPrice += info.number * info.price;
         })
-        if(totalPrice >= 20)totalPrice = totalPrice-5;
+        let {enable,point,reward} = this.data.promotion;
+        if(enable){
+            if(totalPrice >= point)totalPrice = totalPrice-reward;
+        }
         totalPrice = totalPrice.toFixed(2);
         this.setData({
             list,
@@ -102,7 +124,7 @@ Page({
             this.payagain(this._id);
             return;
         }
-        let {address,totalPrice,list} = this.data;
+        let {address,totalPrice,list,promotion} = this.data;
         let goods = [];
         let cart_ids = [];
         list.forEach(item=>{
@@ -113,7 +135,8 @@ Page({
             address,
             goods,
             totalPrice,
-            cart_ids
+            cart_ids,
+            promotion
         }
         $api({
             method:'POST',
@@ -178,9 +201,12 @@ Page({
         wx.setNavigationBarTitle({
             title: '确认订单'
         })
-        this.getDefaultAddress()
+        
+        
         let orderList = wx.getStorageSync('orderList')
         wx.removeStorage({key:'orderList'})
+        this.initial()
         this.changeOrder(orderList)
+        
     }
 })

@@ -43,9 +43,9 @@
               <view class="btn-number add" data-type="add" data-index="{{index}}" bindtap="changeNumber">+</view>
            </view>
          </view>
-         <view class="item-dfn">
+         <view class="item-dfn" wx:if="{{promotion.enable}}">
             <view>店铺优惠</view>
-            <view class="highlight-text">单笔消费满20元，立减5元</view>
+            <view class="highlight-text">单笔消费满{{promotion.point}}元，立减{{promotion.reward}}元</view>
          </view>
          <view class="item-dfn">
             <view>配送方式</view>

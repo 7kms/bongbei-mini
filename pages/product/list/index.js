@@ -73,18 +73,18 @@ Page(sharePage({
           })
         }
       },
-      onHide(){
-        this.queryInfo.page=1;
-        this.queryInfo.skip=0;
-        this.queryInfo.options = {};
-        this.setData({
-          list:[],
-          loading: true,
-          hasMore: true,
-          pending: false
-        })
-      },
-    onShow() {
+      // onHide(){
+      //   this.queryInfo.page=1;
+      //   this.queryInfo.skip=0;
+      //   this.queryInfo.options = {};
+      //   this.setData({
+      //     list:[],
+      //     loading: true,
+      //     hasMore: true,
+      //     pending: false
+      //   })
+      // },
+    onLoad() {
         wx.showLoading({
           title: '加载中',
           mask: true

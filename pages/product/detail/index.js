@@ -7,6 +7,9 @@ Page({
         loading: true,
         showCart: false,
         info: {},
+        promotion: {
+            enable: false
+        },
         swiper: {
             indicatorDots: true,
             autoplay: true,
@@ -25,7 +28,9 @@ Page({
         $api({
             method: 'GET',
             url: `/goods/${_id}`,
-            success:(data)=>{
+            success:({res,promotion = {}})=>{
+                let data = res;
+                
                 data.pictures.unshift(data.cover)
                 wx.hideLoading()
                 wx.setNavigationBarTitle({
@@ -36,8 +41,11 @@ Page({
                     data.helpInfo = data.helpInfo.split(/\r?\n/);
                     console.log(data.helpInfo)
                 }
+                let initialOrder = data.priceInfo[0];
                 this.setData({
                     info: data,
+                    order: {number:1,standard:initialOrder.text,price:initialOrder.price},
+                    promotion: Object.assign({},this.data.promotion,promotion),
                     loading: false
                 })
             },
@@ -57,6 +65,7 @@ Page({
     changeOrder(info){
         let {order} = this.data;
         order = Object.assign(order,info)
+        console.log(order)
         this.setData({
             order
         })
@@ -89,6 +98,7 @@ Page({
             return false;
         }
         let {cover,name,_id} = this.data.info;
+        let promotion = this.data.promotion;
         let obj = {
             cover,
             name,

@@ -19,8 +19,8 @@
         </view>
         <view class="item base">
             <view class="price">￥{{order.price ? order.price : info.priceInfo[0].price}} </view>
-            <view class="operate">
-                <view class="tag active">单笔消费满20元，立减5元</view>
+            <view class="operate" wx:if="{{promotion.enable}}">
+                <view class="tag active">单笔消费满{{promotion.point}}元，立减{{promotion.reward}}元</view>
             </view>
         </view>
         <view class="item base">

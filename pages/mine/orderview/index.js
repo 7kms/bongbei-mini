@@ -7,7 +7,8 @@ Page({
         imagePrefix,
         totalPrice: 0,
         paid: false,
-        list: []
+        list: [],
+        promotion:{enable:false}
     },
     getOrder(id){
         $api({
@@ -19,7 +20,8 @@ Page({
                    list: data.goods,
                    address: data.address,
                    totalPrice: data.totalPrice,
-                   paid: data.paid
+                   paid: data.paid,
+                   promotion: data.promotion
                })
             },
             fail:()=>{

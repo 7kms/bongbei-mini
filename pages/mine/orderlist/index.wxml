@@ -35,7 +35,9 @@
                       <view class="info-dfn info-price">¥{{(good.price * good.number)}}</view>
                     </view>
                     <view class="item-dfn">
-                      <view class="highlight-text">单笔消费满20元，立减5元</view>
+                      <view class="highlight-text">
+                        <block  wx:if="{{item.promotion && item.promotion.enable}}">单笔消费满{{item.promotion.point}}元，立减{{item.promotion.reward}}元</block>
+                      </view>
                       <view>
                         <text class="total-price">共{{item.goods.length}}件商品，合计</text>
                         <text class="highlight-text">¥{{item.totalPrice}}</text>
