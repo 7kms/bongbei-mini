@@ -10,6 +10,10 @@ App({
       login()
     })
   },
+  onShow(){
+    wx.removeStorageSync('product-cache')
+    // wx.setStorageSync('orderList', orderList)
+  },
   globalData:{
 
   }

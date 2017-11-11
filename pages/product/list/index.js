@@ -73,18 +73,28 @@ Page(sharePage({
           })
         }
       },
-      // onHide(){
-      //   this.queryInfo.page=1;
-      //   this.queryInfo.skip=0;
-      //   this.queryInfo.options = {};
-      //   this.setData({
-      //     list:[],
-      //     loading: true,
-      //     hasMore: true,
-      //     pending: false
-      //   })
-      // },
-    onLoad() {
+        onHide(){
+         
+          wx.setStorageSync('product-cache',true)
+      },
+      onShow(){
+        if(!wx.getStorageSync('product-cache')){
+          this.reset();
+          this.initial();
+        }
+      },
+      reset(){
+        this.queryInfo.page=1;
+        this.queryInfo.skip=0;
+        this.queryInfo.options = {};
+        this.setData({
+          list:[],
+          loading: true,
+          hasMore: true,
+          pending: false
+        })
+      },
+      initial(){
         wx.showLoading({
           title: '加载中',
           mask: true
@@ -97,7 +107,11 @@ Page(sharePage({
                 })
                 this.getList()
             }
-        });   
+        }); 
+      },
+
+    onLoad() {
+       this.initial()
     },
     loadMore(){
         this.getList();
