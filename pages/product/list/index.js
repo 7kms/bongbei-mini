@@ -12,7 +12,7 @@ Page(sharePage({
           cover: 1,
           name: 1,
           priceInfo: 1,
-          sales: 1,
+          displaySales: 1,
           category: 1
         },
         options:{
