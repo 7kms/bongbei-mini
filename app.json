@@ -43,7 +43,7 @@
         "pagePath": "pages/course/list/index",
         "iconPath": "images/icon_course.png",
         "selectedIconPath": "images/icon_course_active.png",
-        "text": "课程"
+        "text": "客户"
       },
       {
         "pagePath": "pages/mine/menu/index",
